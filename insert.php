@@ -1,4 +1,12 @@
-<?php 
+<?php
+
+session_start();
+
+if(!isset($_SESSION['usuario_id'])){
+    header("Location: login.html");
+    exit();
+}
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $host = "localhost";
     $db = "projetoweb";
@@ -24,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $stmt->execute();
         echo "Usuário inserido com sucesso.";
 
-    } catch(PDOExcepetion $e){
+    } catch(PDOException $e){
         echo "Erro: " . $e->getMessage();
     }
 } else {

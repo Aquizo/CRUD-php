@@ -1,46 +1,68 @@
 <?php
-    $nome = "";
-    $telefone = "";
-    $email = "";
-    $senha = "";
 
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $host = "localhost";
-        $db = "projetoweb";
-        $user = "root";
-        $pass = "";
+session_start();
 
-        try {
-           $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+if(!isset($_SESSION['usuario_id'])){
+    header("Location: login.html");
+    exit();
+}
 
-           $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-           $id = $_POST['id'];
+$nome = "";
+$telefone = "";
+$email = "";
+$senha = "";
 
-           $sql = "SELECT * FROM usuarios where id = :id";
-           $stmt = $pdo->prepare($sql);
-           $stmt->bindParam(':id',$id, PDO::PARAM_INT);
+if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-           $stmt->execute();
+    $host = "localhost";
+    $db = "projetoweb";
+    $user = "root";
+    $pass = "";
 
-           $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    try {
 
-           if($row){
+        $pdo = new PDO(
+            "mysql:host=$host;dbname=$db",
+            $user,
+            $pass
+        );
+
+        $pdo->setAttribute(
+            PDO::ATTR_ERRMODE,
+            PDO::ERRMODE_EXCEPTION
+        );
+
+        $id = $_POST['id'];
+
+        $sql = "SELECT * FROM usuarios WHERE id = :id";
+
+        $stmt = $pdo->prepare($sql);
+
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($row){
             $nome = $row['nome'];
             $telefone = $row['telefone'];
             $email = $row['email'];
             $senha = $row['senha'];
-           } else {
-                $nome = "";
-                $telefone = "";
-                $email = "";
-                $senha = "";
-           }
-        } catch(PDOExcepetion $e){
-            echo "Erro: " . $e->getMessage();
-        }
-    } else {
-        echo "Conexão não estabelecida";
-    }        
+        } else {
+    echo "<p>Usuário não encontrado.</p>";
+}
+
+    } catch(PDOException $e){
+        echo "Erro: " . $e->getMessage();
+    }
+
+// } else {
+
+//     echo "Conexão não estabelecida";
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -51,10 +73,12 @@
     <title>Pesquisa e atualização</title>
 </head>
 <body>
-    <h2>Atualizar cadastro</h2>
+    <p>Bem-vindo, <?php echo $_SESSION['usuario_nome']; ?>!</p>
+    <a href="logout.php">Sair</a>
+    <h2>Pesquisa e Atualização</h2>
     <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
         <p>
-            ID: <input type="text" name="id">
+            ID: <input type="number" name="id" required>
             <input type="submit" value="Pesquisar">
         </p>
     </form>
@@ -73,8 +97,10 @@
         Senha: <p><input type="password" name="senha" value="<?php echo $senha; ?>"></p>
         <p><input type="submit" value="Atualizar usuário"></p>
     </form>
+    
 <?php
     }
 ?>
 </body>
+
 </html>

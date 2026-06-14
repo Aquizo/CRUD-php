@@ -1,4 +1,12 @@
 <?php
+
+session_start();
+
+if(!isset($_SESSION['usuario_id'])){
+    header("Location: login.html");
+    exit();
+}
+
     if($_SERVER["REQUEST_METHOD"] == "POST"){
     $host = "localhost";
     $db = "projetoweb";
@@ -34,7 +42,7 @@
             <body>
                 <h2>Cadastro atualizado com sucesso</h2>
                 <hr>
-                <button onclik="history.go(-1)">Retornar</button>
+                <button onclick="window.location.href=&quot;select.php&quot;">Voltar para Pesquisa</button>
             </body>
             </html>';
         } else {
@@ -53,10 +61,10 @@
             </html>';
         }
 
-    } catch(PDOExcepetion $e){
+    } catch(PDOException $e){
         echo "Erro: " . $e->getMessage();
     }
-} else {
-    echo "Conexão não estabelecida";
+// } else {
+//     echo "Conexão não estabelecida";
 }
 ?>
