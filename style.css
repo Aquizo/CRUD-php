@@ -1,0 +1,326 @@
+:root {
+  --page-bg: #f5f7fb;
+  --card-radius: 18px;
+  --sidebar-width: 260px;
+  --navbar-height: 58px;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: clamp(14px, 1vw, 16px); }
+
+body {
+  background-color: black;
+  min-height: 100vh;
+  background: var(--page-bg); 
+  overflow-x: hidden;
+}
+
+[data-bs-theme="dark"] body,
+[data-bs-theme="dark"] .login-page {
+  background: #101827;
+}
+
+/*Barra de navegação*/
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Joga a logo para a esquerda e os links para a direita */
+  align-items: center;            /* Centraliza tudo verticalmente */
+  background-color: #111827;      /* Cor de fundo escura */
+  padding: 1rem 2rem;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;               /* Remove as bolinhas da lista */
+  gap: 1.5rem;                    /* Espaçamento entre os links */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;          /* Remove o sublinhado dos links */
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #0d6efd;                 /* Muda de cor ao passar o mouse */
+}
+
+/*Login*/
+.login-page {
+  background: linear-gradient(135deg, #eef4ff, #f8fafc);
+}
+
+div.login-wrapper {
+  min-height: 100vh !important; 
+  padding: clamp(1rem, 3vw, 2rem);
+ 
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;     
+}
+
+input { border-radius: var(--card-radius); }
+
+div.card.login-card {
+  width: min(100%, 520px) !important;
+  border-radius: var(--card-radius) !important;
+  overflow: hidden !important;
+  
+  background-color: #ffffff; 
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.login-card .card-body {
+  padding: clamp(1.25rem, 4vw, 3rem);
+}
+
+.login-logo {
+  display: block;
+  width: clamp(82px, 18vw, 112px);
+  height: clamp(82px, 18vw, 112px);
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .12);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.login-logo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .16);
+}
+
+.form-control,
+.form-select,
+.btn {
+  min-height: 44px;
+}
+
+.app-navbar {
+  min-height: var(--navbar-height);
+  z-index: 1030;
+}
+
+.sidebar {
+  position: fixed;
+  top: var(--navbar-height);
+  left: 0;
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--navbar-height));
+  padding: 1rem;
+  background: var(--bs-body-bg);
+  border-right: 1px solid var(--bs-border-color);
+  overflow-y: auto;
+}
+
+.sidebar-title {
+  color: var(--bs-secondary-color);
+  font-size: .8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: .5rem .75rem 1rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .75rem .9rem;
+  color: var(--bs-body-color);
+  text-decoration: none;
+  border-radius: 12px;
+  margin-bottom: .35rem;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+  background: rgba(13, 110, 253, .12);
+  color: #0d6efd;
+}
+
+.offcanvas .sidebar-link {
+  margin-bottom: .5rem;
+}
+
+.app-content {
+  padding-top: calc(var(--navbar-height) + 1rem) !important;
+  width: min(100% - 1.5rem, 1440px);
+  margin-inline: auto;
+}
+
+.card {
+  border-radius: 16px;
+}
+
+.welcome-card,
+.stat-card {
+  overflow: hidden;
+}
+
+.stat-card .card-body {
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.stat-label {
+  display: block;
+  color: var(--bs-secondary-color);
+  font-size: .85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.stat-card h2 {
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  font-weight: 800;
+  margin: .35rem 0;
+}
+
+.table-box {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+}
+
+.table td,
+.table th {
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: .35rem;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 992px) {
+  .app-content {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    max-width: none;
+    padding-inline: clamp(1rem, 2vw, 2rem);
+  }
+}
+
+
+@media (min-width: 1400px) {
+  /* --- ALTERADO: Aumentado proporcionalmente para telas grandes --- */
+  div.card.login-card { max-width: 560px !important; }
+  .dashboard-title { font-size: 1.45rem; }
+}
+
+@media (max-width: 991.98px) {
+  .dashboard-header {
+    align-items: stretch !important;
+  }
+
+  .dashboard-header .btn,
+  .dashboard-header .form-control {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575.98px) {
+  html { font-size: 15px; }
+
+  div.login-wrapper {
+    align-items: flex-start !important;
+    padding-top: 1.25rem;
+  }
+
+  div.card.login-card {
+    border-radius: 14px !important;
+    box-shadow: 0 .5rem 1.2rem rgba(0,0,0,.08) !important;
+  }
+
+  .login-options {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: .75rem;
+  }
+
+  .app-content {
+    width: min(100% - 1rem, 1200px);
+  }
+
+  .card-header,
+  .card-body {
+    padding: 1rem;
+  }
+
+  .action-buttons {
+    justify-content: flex-start;
+  }
+
+  .action-buttons .btn {
+    width: 100%;
+  }
+
+  .navbar-brand {
+    font-size: 1rem;
+  }
+}
+
+
+.btn-theme-floating {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 9999;
+  border: 1px solid var(--bs-border-color);
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.12);
+  border-radius: 999px;
+  padding: .55rem .9rem;
+  font-weight: 600;
+}
+
+.btn-theme-floating:hover {
+  background: var(--bs-secondary-bg);
+  color: var(--bs-body-color);
+}
+
+[data-bs-theme="dark"] .login-page {
+  background: linear-gradient(135deg, #0f172a, #111827);
+}
+
+[data-bs-theme="dark"] div.card.login-card {
+  background: #182235 !important;
+  color: #f8fafc;
+}
+
+[data-bs-theme="dark"] .form-control,
+[data-bs-theme="dark"] .form-select {
+  background: #111827;
+  color: #f8fafc;
+  border-color: #334155;
+}
+
+[data-bs-theme="dark"] .form-control::placeholder {
+  color: #94a3b8;
+}
+
+[data-bs-theme="dark"] .alert-info {
+  background: #083344;
+  color: #cffafe;
+  border-color: #155e75;
+}
+
+@media (max-width: 575.98px) {
+  .btn-theme-floating {
+    top: 10px;
+    right: 10px;
+    padding: .45rem .7rem;
+    font-size: .85rem;
+  }
+
+  div.login-wrapper {
+    padding-top: 4rem;
+  }
+}
