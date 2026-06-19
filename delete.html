@@ -3,28 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Deletar registro</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<nav class="navbar">
-  <ul class="nav-links">
-    <li><a href="form.html">Formulário</a></li>
-    <li><a href="login.html">Login</a></li>
-    <li><a href="select.php">Atualizar</a></li>
-    <li><a href="delete.php">Delete</a></li>
-  </ul>
-</nav>
-<div class="login-wrapper">
-    
-    <h2>Deletar registro</h2>
-    <div class="login-card"></div>
-    <form method="post" action="delete.php">
-        ID: <input type="text" name="id">
-        <input type="submit" value="Excluir registro">
 
-    </form>
+<body>
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="form.html">Formulário</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="select.php">Atualizar</a></li>
+            <li><a href="delete.php">Delete</a></li>
+        </ul>
+    </nav>
+
+    <div class="login-wrapper">
+
+        <div class="login-card">
+
+            <h2>Deletar registro</h2>
+
+            <form method="post" action="delete.php">
+
+                <label for="id">ID do registro</label>
+
+                <input
+                    type="text"
+                    id="id"
+                    name="id"
+                    class="form-control"
+                    placeholder="Digite o ID"
+                    required
+                >
+
+                <button type="submit" class="btn-danger">
+                    Excluir registro
+                </button>
+
+            </form>
+
+        </div>
+
     </div>
-</div>
+
 </body>
 </html>
