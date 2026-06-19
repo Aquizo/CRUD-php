@@ -79,7 +79,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <li><a href="form.html">Formulário</a></li>
     <li><a href="login.html">Login</a></li>
     <li><a href="select.php">Atualizar</a></li>
-    <li><a href="delete.php">Delete</a></li>
+    <li><a href="delete.html">Delete</a></li>
   </ul>
 </nav>
 <div class="login-wrapper">
