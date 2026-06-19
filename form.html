@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,76 +10,83 @@
 
 <body>
 
-<nav class="navbar">
-    <ul class="nav-links">
-        <li><a href="form.html">Formulário</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="select.php">Atualizar</a></li>
-        <li><a href="delete.php">Delete</a></li>
-    </ul>
-</nav>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="form.html">Formulário</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="select.php">Atualizar</a></li>
+            <li><a href="delete.php">Delete</a></li>
+        </ul>
+    </nav>
 
-<div class="login-wrapper">
+    <div class="login-wrapper">
 
-    <div class="login-card">
+        <div class="login-card">
 
-        <h1>Formulário de Cadastro</h1>
+            <h1>Formulário de Cadastro</h1>
 
-        <form method="post" action="insert.php">
+            <form method="post" action="insert.php">
 
-            <p>
-                <label for="nome">Nome</label><br>
-                <input
-                    type="text"
-                    id="nome"
-                    name="nome"
-                    placeholder="Digite seu nome"
-                    required
-                >
-            </p>
+                <p>
+                    <label for="nome">Nome</label><br>
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        placeholder="Digite seu nome completo"
+                        autocomplete="name"
+                        required
+                    >
+                </p>
 
-            <p>
-                <label for="telefone">Telefone</label><br>
-                <input
-                    type="text"
-                    id="telefone"
-                    name="telefone"
-                    placeholder="(00)00000-0000"
-                    required
-                >
-            </p>
+                <p>
+                    <label for="telefone">Telefone</label><br>
+                    <input
+                        type="tel"
+                        id="telefone"
+                        name="telefone"
+                        placeholder="(00) 00000-0000"
+                        autocomplete="tel"
+                        required
+                    >
+                </p>
 
-            <p>
-                <label for="email">E-mail</label><br>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="nome@exemplo.com"
-                    required
-                >
-            </p>
+                <p>
+                    <label for="email">E-mail</label><br>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="nome@exemplo.com"
+                        autocomplete="email"
+                        required
+                    >
+                </p>
 
-            <p>
-                <label for="senha">Senha</label><br>
-                <input
-                    type="password"
-                    id="senha"
-                    name="senha"
-                    placeholder="Digite sua senha"
-                    required
-                >
-            </p>
+                <p>
+                    <label for="senha">Senha</label><br>
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        placeholder="Digite sua senha"
+                        autocomplete="new-password"
+                        required
+                    >
+                </p>
 
-            <p>
-                <input type="submit" value="Enviar Formulário">
-            </p>
+                <p>
+                    <button type="submit">
+                        Enviar Cadastro
+                    </button>
+                </p>
 
-        </form>
+            </form>
+
+        </div>
 
     </div>
 
-</div>
-
 </body>
+
 </html>
