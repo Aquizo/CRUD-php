@@ -10,56 +10,61 @@
 
 <body>
 
-<nav class="navbar">
-    <ul class="nav-links">
-        <li><a href="form.html">Formulário</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="select.php">Atualizar</a></li>
-        <li><a href="delete.php">Delete</a></li>
-    </ul>
-</nav>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="form.html">Formulário</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="select.php">Atualizar</a></li>
+            <li><a href="delete.php">Delete</a></li>
+        </ul>
+    </nav>
 
-<div class="login-wrapper">
+    <div class="login-wrapper">
 
-    <div class="login-card">
+        <div class="login-card">
 
-        <h1>Login</h1>
+            <h1>Login</h1>
 
-        <form action="autenticar.php" method="POST">
+            <form action="autenticar.php" method="POST">
 
-            <p>
-                <label for="email">E-mail</label><br>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="nome@exemplo.com"
-                    required
-                >
-            </p>
+                <p>
+                    <label for="email">E-mail</label><br>
 
-            <p>
-                <label for="senha">Senha</label><br>
-                <input
-                    type="password"
-                    id="senha"
-                    name="senha"
-                    placeholder="Digite sua senha"
-                    required
-                >
-            </p>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Digite seu e-mail"
+                        autocomplete="email"
+                        required
+                    >
+                </p>
 
-            <p>
-                <button type="submit">
-                    Entrar
-                </button>
-            </p>
+                <p>
+                    <label for="senha">Senha</label><br>
 
-        </form>
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        placeholder="Digite sua senha"
+                        autocomplete="current-password"
+                        required
+                    >
+                </p>
+
+                <p>
+                    <button type="submit">
+                        Entrar
+                    </button>
+                </p>
+
+            </form>
+
+        </div>
 
     </div>
 
-</div>
-
 </body>
+
 </html>
