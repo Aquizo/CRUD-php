@@ -87,7 +87,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <p>Bem-vindo, <?php echo $_SESSION['usuario_nome']; ?>!</p>
         <a href="logout.php">Sair</a>
         <h2>Pesquisa e Atualização</h2>
-        <div class="login-card">
             <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
                 <p>
                     ID: <input type="number" name="id" required>
