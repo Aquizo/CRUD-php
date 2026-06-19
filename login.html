@@ -1,36 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <nav class="navbar">
-  <ul class="nav-links">
-    <li><a href="form.html">Formulário</a></li>
-    <li><a href="login.html">Login</a></li>
-    <li><a href="select.php">Atualizar</a></li>
-    <li><a href="delete.php">Delete</a></li>
-  </ul>
+    <ul class="nav-links">
+        <li><a href="form.html">Formulário</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="select.php">Atualizar</a></li>
+        <li><a href="delete.php">Delete</a></li>
+    </ul>
 </nav>
-  <div class="login-wrapper">
+
+<div class="login-wrapper">
+
     <div class="login-card">
-      <form action="autenticar.php" method="POST">
 
-      <label>Email</label>
-      <input type="email" name="email" required>
+        <h1>Login</h1>
 
-      <label>Senha</label>
-      <input type="password" name="senha" required>
+        <form action="autenticar.php" method="POST">
 
-      <button type="submit">
-        Entrar
-      </button>
+            <p>
+                <label for="email">E-mail</label><br>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="nome@exemplo.com"
+                    required
+                >
+            </p>
 
-      </form>
+            <p>
+                <label for="senha">Senha</label><br>
+                <input
+                    type="password"
+                    id="senha"
+                    name="senha"
+                    placeholder="Digite sua senha"
+                    required
+                >
+            </p>
+
+            <p>
+                <button type="submit">
+                    Entrar
+                </button>
+            </p>
+
+        </form>
+
     </div>
-  </div>
+
+</div>
+
 </body>
 </html>
